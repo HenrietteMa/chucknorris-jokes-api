@@ -1,3 +1,4 @@
-# chuck-api
+# chucknorris-jokes-api
 
-everybody what's to hear a good joke
+
+everyone wants to hear a good joke
