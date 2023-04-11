@@ -1,16 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <p>{{joke}}</p>
+    <p> - Chuck Norris</p>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import axios from 'axios'
 
 export default {
+  data() {
+    return {
+      joke: null,
+    }
+  },
+  mounted() {
+    axios
+        .get('https://api.chucknorris.io/jokes/random')
+        .then(response => this.joke = response.data.value)
+        .catch(error => console.log(error.message))
+  },
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
